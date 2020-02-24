@@ -1,0 +1,8 @@
+<% @weapons.each do |weapon| %>
+  <p><strong>title: </strong><%= weapon.title %></p>
+  <p><strong>current power: </strong><%= weapon.current_power %></p>
+  <%= link_to 'More info', weapon, method: :get %>
+  <br>
+  <hr>
+  <br>
+<% end %>
