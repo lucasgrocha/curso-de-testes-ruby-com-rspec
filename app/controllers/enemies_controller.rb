@@ -1,5 +1,18 @@
 class EnemiesController < ApplicationController
-  before_action :set_enemy
+  before_action :set_enemy, except: %i[index create]
+
+  def index
+    render json: Enemy.all, status: :ok
+  end
+
+  def show
+    render json: @enemy
+  end
+
+  def create
+    @enemy = Enemy.create(enemy_params)
+    render json: @enemy, status: :created
+  end
 
   def update
     if @enemy.update(enemy_params)
